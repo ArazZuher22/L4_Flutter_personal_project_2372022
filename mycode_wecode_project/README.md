@@ -3,8 +3,8 @@
 A new Flutter project.
 
 ## Todo app
--[X]initial
--[ ]create simple code 
+[x]initial
+[ ]create simple code 
 
 
 
