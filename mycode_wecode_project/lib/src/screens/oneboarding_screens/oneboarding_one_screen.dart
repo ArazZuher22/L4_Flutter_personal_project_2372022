@@ -17,6 +17,7 @@ class _HomeScreenView extends State<HomeScreenView> {
       backgroundColor: Styles.bgColorPrimary,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        elevation: 0,
         toolbarHeight: 120,
         actions: <Widget>[
           TextButton(
@@ -25,22 +26,28 @@ class _HomeScreenView extends State<HomeScreenView> {
           ),
         ],
       ),
-      body: Stack(
-        children:[
-          Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+      body: Container(
+        child: Stack(
+          children:[
             
+              Text('Get more done.',style: Styles.headLineStyle1,),
 
-            Text('Get more done.',style: Styles.headLineStyle1,),
+              Positioned(
+                  left: 20.0,
+                  
+                  child: Container(
+                          padding:  EdgeInsets.all(8.0),
+                          height: 500.0,
+                          width: 500.0,
+                  child: Text('data',style: Styles.headLineStyle1,),),
+                ),
+            ],
+          
 
 
-          ],
+          
+         
         ),
-
-
-        ]
-       
       ),
     );
   }
