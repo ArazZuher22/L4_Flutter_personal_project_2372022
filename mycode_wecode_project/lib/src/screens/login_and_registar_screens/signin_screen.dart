@@ -23,6 +23,7 @@ class _HomeScreenView extends State<HomeScreenView> {
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
     return Scaffold(
+      resizeToAvoidBottomInset: false ,
       backgroundColor: Styles.bgColor,
       body: Column(
         children: [
@@ -50,9 +51,9 @@ class _HomeScreenView extends State<HomeScreenView> {
             Gap(AppLayout.getHeight(30)),
             Text('or',style: Styles.headLineStyle3.copyWith(color: Styles.primaryColor,fontWeight: FontWeight.normal),),
             Gap(AppLayout.getHeight(20)),
-            SecondaryButtonWidget(buttonText: "Sign With Google",buttonIcon: Icon(Icons.phone),),
+            SecondaryButtonWidget(buttonText: "Sign With Phone Number",buttonIcon: Icon(FontAwesomeIcons.google)),
             Gap(AppLayout.getHeight(20)),
-            SecondaryButtonWidget(buttonText: "Sign With Phone Number",buttonIcon: Icon(Icons.phone)),
+            SecondaryButtonWidget(buttonText: "Sign With Google",buttonIcon: Icon(Icons.phone),),
             Gap(AppLayout.getHeight(35)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -61,7 +62,6 @@ class _HomeScreenView extends State<HomeScreenView> {
                 Text("Sign Up ",style: Styles.headLineStyle5.copyWith(color:Styles.secondaryColor),),
               ],
             ),
-            Gap(AppLayout.getHeight(20)),
         ],
       )
     );
