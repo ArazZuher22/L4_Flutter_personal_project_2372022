@@ -24,5 +24,6 @@ samples, guidance on mobile development, and a full API reference.
 
 
 # package
-gap: 2.0.0
+gap: ^2.0.0
 get: ^4.6.5
+font_awesome_flutter: ^10.1.0

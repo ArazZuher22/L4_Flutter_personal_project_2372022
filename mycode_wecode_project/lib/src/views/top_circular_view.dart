@@ -54,6 +54,7 @@ class TopCircularView extends StatelessWidget {
                 style: Styles.headLineStyle1.copyWith(color: Colors.black),
               ),
             ),
+            
             backButton
                 ? Positioned(
                     left: 10.0,
