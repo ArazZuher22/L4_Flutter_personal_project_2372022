@@ -23,45 +23,33 @@ class _HomeScreenView extends State<HomeScreenView> {
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
     return Scaffold(
+      resizeToAvoidBottomInset: false ,
       backgroundColor: Styles.bgColor,
       body: Column(
         children: [
              
-            TopCircularView(headText: 'Lets Get Started',backButton: false,),
+            TopCircularView(headText: ' ',backButton: true,),
             
             Gap(AppLayout.getHeight(10)),
-            Text('Sign In',style: Styles.headLineStyle2,),
-            Gap(AppLayout.getHeight(50)),
+            Text('New Password',style: Styles.headLineStyle1,),
+            Gap(AppLayout.getHeight(20)),
+            Text('Create your new password to Login',style: Styles.headLineStyle2,),
+            Gap(AppLayout.getHeight(20)),
             TextFieldWidget(
-              labelText: "Email or No.Phone",
+              labelText: "New Password",
+              controllerTextField: emailOrNumber,
+              iconTextField: Icon(Icons.email),
+            ),
+            TextFieldWidget(
+              labelText: "Confirm password",
               controllerTextField: emailOrNumber,
               iconTextField: Icon(Icons.email),
             ),
             Gap(AppLayout.getHeight(20)),
-            TextFieldWidget(
-              labelText: "Password",
-              controllerTextField: password,
-              iconTextField: Icon(Icons.lock),
-            ),
-            Gap(AppLayout.getHeight(25)),
-            Text('Forgout Password',style: Styles.headLineStyle5.copyWith(color: Styles.primaryColor),),
-            Gap(AppLayout.getHeight(20)),
+            
             PrimaryButtonWidget(buttonText: "Sign In",),
-            Gap(AppLayout.getHeight(30)),
-            Text('or',style: Styles.headLineStyle3.copyWith(color: Styles.primaryColor,fontWeight: FontWeight.normal),),
-            Gap(AppLayout.getHeight(20)),
-            SecondaryButtonWidget(buttonText: "Sign With Phone Number",buttonIcon: Icon(FontAwesomeIcons.google)),
-            Gap(AppLayout.getHeight(20)),
-            SecondaryButtonWidget(buttonText: "Sign With Google",buttonIcon: Icon(Icons.phone),),
-            Gap(AppLayout.getHeight(10)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Don't Have Account ? ",style: Styles.textStyleSmall.copyWith(color: Styles.primaryColor)),
-                Text("Sign Up ",style: Styles.headLineStyle5.copyWith(color:Styles.secondaryColor),),
-              ],
-            ),
-        ],
+            
+          ],
       )
     );
   }

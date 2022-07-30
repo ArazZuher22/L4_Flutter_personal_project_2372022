@@ -23,19 +23,27 @@ class _HomeScreenView extends State<HomeScreenView> {
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
     return Scaffold(
+      resizeToAvoidBottomInset: false ,
       backgroundColor: Styles.bgColor,
       body: Column(
         children: [
              
-            TopCircularView(headText: 'Lets Get Started',backButton: false,),
+            TopCircularView(headText: 'Create an account',backButton: false,),
             
             Gap(AppLayout.getHeight(10)),
-            Text('Sign In',style: Styles.headLineStyle2,),
-            Gap(AppLayout.getHeight(50)),
+            Text('Sign Up',style: Styles.headLineStyle2,),
+            Text('With Email',style: Styles.headLineStyle2,),
+            Gap(AppLayout.getHeight(20)),
             TextFieldWidget(
-              labelText: "Email or No.Phone",
+              labelText: "Username",
               controllerTextField: emailOrNumber,
               iconTextField: Icon(Icons.email),
+            ),
+            Gap(AppLayout.getHeight(20)),
+            TextFieldWidget(
+              labelText: "Email",
+              controllerTextField: password,
+              iconTextField: Icon(Icons.lock),
             ),
             Gap(AppLayout.getHeight(20)),
             TextFieldWidget(
@@ -43,17 +51,16 @@ class _HomeScreenView extends State<HomeScreenView> {
               controllerTextField: password,
               iconTextField: Icon(Icons.lock),
             ),
+            Gap(AppLayout.getHeight(20)),
+            TextFieldWidget(
+              labelText: "Confirm Password",
+              controllerTextField: password,
+              iconTextField: Icon(Icons.lock),
+            ),
             Gap(AppLayout.getHeight(25)),
-            Text('Forgout Password',style: Styles.headLineStyle5.copyWith(color: Styles.primaryColor),),
-            Gap(AppLayout.getHeight(20)),
-            PrimaryButtonWidget(buttonText: "Sign In",),
-            Gap(AppLayout.getHeight(30)),
-            Text('or',style: Styles.headLineStyle3.copyWith(color: Styles.primaryColor,fontWeight: FontWeight.normal),),
-            Gap(AppLayout.getHeight(20)),
-            SecondaryButtonWidget(buttonText: "Sign With Phone Number",buttonIcon: Icon(FontAwesomeIcons.google)),
-            Gap(AppLayout.getHeight(20)),
-            SecondaryButtonWidget(buttonText: "Sign With Google",buttonIcon: Icon(Icons.phone),),
-            Gap(AppLayout.getHeight(10)),
+            PrimaryButtonWidget(buttonText: "Sign Up",),
+            
+            Gap(AppLayout.getHeight(35)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -61,6 +68,8 @@ class _HomeScreenView extends State<HomeScreenView> {
                 Text("Sign Up ",style: Styles.headLineStyle5.copyWith(color:Styles.secondaryColor),),
               ],
             ),
+            Gap(AppLayout.getHeight(50)),
+            Text("By sign up, accept the terms of service, \n Guidelines and have read Privacy Policy.",style: Styles.textStyleSmall.copyWith(color: Styles.primaryColor)),
         ],
       )
     );
