@@ -53,7 +53,7 @@ class _HomeScreenView extends State<HomeScreenView> {
             SecondaryButtonWidget(buttonText: "Sign With Phone Number",buttonIcon: Icon(FontAwesomeIcons.google)),
             Gap(AppLayout.getHeight(20)),
             SecondaryButtonWidget(buttonText: "Sign With Google",buttonIcon: Icon(Icons.phone),),
-            Gap(AppLayout.getHeight(10)),
+            Gap(AppLayout.getHeight(25)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
