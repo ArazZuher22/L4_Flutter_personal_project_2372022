@@ -3,15 +3,27 @@
   Smile production app
 </h1>
 The smile production is application for more production in your life , it is more usefull app to organize your work to early achive tasks. 
+<br>
+<br>
 
 # Services & Softwares  
-version one is one of the assignment wecode (Rwanga Foundation)  , just contains profile page , it's shown all links and personal information .
+<center> 
+<a href="https://dart.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="dart" width="40" height="40"/> </a> 
+<strong height="2">
+<a href="https://flutter.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="flutter" width="40" height="40"/> </a> 
+</strong>
+<a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a>
+</center>
+
+<br>
+<br>
 
 # Fetures & TODOs
 - [x] Authentication (signin + signup) 
 - [x] Authentication email link verification 
 - [x] Authentication forget password 
 - [ ] Authentication with phone number 
+<br>
 
 - [x] Create todo
 - [x] Update todo
@@ -26,7 +38,7 @@ version one is one of the assignment wecode (Rwanga Foundation)  , just contains
 Smile production app is useful for everybody who achive tasks , I will be happy to answer any questions that you may have on this approach .
 
 # Developer 
-Email arazzuher3@gmail.com 
+- Email arazzuher3@gmail.com 
 
 # Screenshot
 
