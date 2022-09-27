@@ -8,13 +8,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../widgets/primary_button_widget.dart';
 import '../../widgets/secondary_button_widget.dart';
 import '../../widgets/text_field_widget.dart';
-class HomeScreenView extends StatefulWidget {
-  const HomeScreenView({Key? key}) : super(key: key);
+class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({Key? key, required int selectedindex}) : super(key: key);
   @override
-  State<HomeScreenView> createState() => _HomeScreenView();
+  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreen();
 }
 
-class _HomeScreenView extends State<HomeScreenView> {
+class _ForgotPasswordScreen extends State<ForgotPasswordScreen> {
   // TODO :
   // TODO :
   TextEditingController emailOrNumber = TextEditingController();

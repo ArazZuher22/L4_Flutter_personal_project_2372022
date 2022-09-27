@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mycode_wecode_project/src/utils/app_layout.dart';
 import 'package:mycode_wecode_project/src/utils/app_styles.dart';
 
 class PrimaryButtonWidget extends StatelessWidget {
   String buttonText;
-  
-  PrimaryButtonWidget({Key? key, required this.buttonText})
+  Function? a;
+  PrimaryButtonWidget({Key? key, required this.buttonText, this.a})
       : super(key: key);
 
   @override
@@ -17,7 +18,7 @@ class PrimaryButtonWidget extends StatelessWidget {
       height: AppLayout.getHeight(60.0),
       width: AppLayout.getWidth(280.0),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: a,
         child: Text(buttonText,
             style: Styles.headLineStyle4.copyWith(color: Colors.white)),
         style: ElevatedButton.styleFrom(

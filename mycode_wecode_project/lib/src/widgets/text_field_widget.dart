@@ -26,7 +26,7 @@ class TextFieldWidget extends StatelessWidget {
           decoration: InputDecoration(
             filled: true,
             fillColor: Styles.primaryLightColor,
-            // changed this
+            // Icon textfield
             prefixIcon: iconTextField,
             prefixIconColor: Styles.primaryColor,
             // changed this

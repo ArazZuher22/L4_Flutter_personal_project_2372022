@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mycode_wecode_project/src/utils/app_styles.dart';
 import 'package:mycode_wecode_project/src/utils/app_layout.dart';
 import 'package:mycode_wecode_project/src/views/top_circular_view.dart';
@@ -8,6 +8,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../widgets/primary_button_widget.dart';
 import '../../widgets/secondary_button_widget.dart';
 import '../../widgets/text_field_widget.dart';
+
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
   @override
@@ -23,14 +24,18 @@ class _SignInScreen extends State<SignInScreen> {
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
     return Scaffold(
-      backgroundColor: Styles.bgColor,
-      body: Column(
-        children: [
-             
-            TopCircularView(headText: 'Lets Get Started',backButton: false,),
-            
+        backgroundColor: Styles.bgColor,
+        body: Column(
+          children: [
+            TopCircularView(
+              headText: 'Lets Get Started',
+              backButton: false,
+            ),
             Gap(AppLayout.getHeight(10)),
-            Text('Sign In',style: Styles.headLineStyle2,),
+            Text(
+              'Sign In',
+              style: Styles.headLineStyle2,
+            ),
             Gap(AppLayout.getHeight(50)),
             TextFieldWidget(
               labelText: "Email or No.Phone",
@@ -44,26 +49,45 @@ class _SignInScreen extends State<SignInScreen> {
               iconTextField: Icon(Icons.lock),
             ),
             Gap(AppLayout.getHeight(25)),
-            Text('Forgout Password',style: Styles.headLineStyle5.copyWith(color: Styles.primaryColor),),
+            Text(
+              'Forgout Password',
+              style: Styles.headLineStyle5.copyWith(color: Styles.primaryColor),
+            ),
             Gap(AppLayout.getHeight(20)),
-            PrimaryButtonWidget(buttonText: "Sign In",),
+            PrimaryButtonWidget(
+              buttonText: "Sign In",
+              
+            ),
             Gap(AppLayout.getHeight(30)),
-            Text('or',style: Styles.headLineStyle3.copyWith(color: Styles.primaryColor,fontWeight: FontWeight.normal),),
+            Text(
+              'or',
+              style: Styles.headLineStyle3.copyWith(
+                  color: Styles.primaryColor, fontWeight: FontWeight.normal),
+            ),
             Gap(AppLayout.getHeight(20)),
-            SecondaryButtonWidget(buttonText: "Sign With Phone Number",buttonIcon: Icon(FontAwesomeIcons.google)),
+            SecondaryButtonWidget(
+                buttonText: "Sign With Google",
+                buttonIcon: Icon(FontAwesomeIcons.google)),
             Gap(AppLayout.getHeight(20)),
-            SecondaryButtonWidget(buttonText: "Sign With Google",buttonIcon: Icon(Icons.phone),),
+            SecondaryButtonWidget(
+              buttonText: "Sign With Phone Number",
+              buttonIcon: Icon(Icons.phone),
+            ),
             Gap(AppLayout.getHeight(25)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Don't Have Account ? ",style: Styles.textStyleSmall.copyWith(color: Styles.primaryColor)),
-                Text("Sign Up ",style: Styles.headLineStyle5.copyWith(color:Styles.secondaryColor),),
+                Text("Don't Have Account ? ",
+                    style: Styles.textStyleSmall
+                        .copyWith(color: Styles.primaryColor)),
+                Text(
+                  "Sign Up ",
+                  style: Styles.headLineStyle5
+                      .copyWith(color: Styles.secondaryColor),
+                ),
               ],
             ),
-        ],
-      )
-    );
+          ],
+        ));
   }
-  
 }

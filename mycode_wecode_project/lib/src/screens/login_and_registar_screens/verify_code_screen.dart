@@ -8,13 +8,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../widgets/primary_button_widget.dart';
 import '../../widgets/secondary_button_widget.dart';
 import '../../widgets/text_field_widget.dart';
-class HomeScreenView extends StatefulWidget {
-  const HomeScreenView({Key? key}) : super(key: key);
+class VerifyCodeScreen extends StatefulWidget {
+  const VerifyCodeScreen({Key? key}) : super(key: key);
   @override
-  State<HomeScreenView> createState() => _HomeScreenView();
+  State<VerifyCodeScreen> createState() => _VerifyCodeScreen();
 }
 
-class _HomeScreenView extends State<HomeScreenView> {
+class _VerifyCodeScreen extends State<VerifyCodeScreen> {
   // TODO :
   // TODO :
   TextEditingController emailOrNumber = TextEditingController();

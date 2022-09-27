@@ -32,18 +32,17 @@ class NavigatioinDrawer extends StatelessWidget {
     child: Container(
           color: Styles.primaryColor,
           padding: EdgeInsets.only(
-            top: AppLayout.getHeight(25),
+            top: AppLayout.getHeight(40),
             bottom: AppLayout.getHeight(25),
             ),
           child: Column(
             children: [
-              CircleAvatar(
-                radius: 52,
-                backgroundColor: Colors.red,
-              ),
+              
               Gap(AppLayout.getHeight(12)),
-              Text('Sarah Abs',style: Styles.headLineStyle3,),
-              Text('Sarach@abs.com',style: Styles.headLineStyle4,)
+              Text('Sarah Abs',style: Styles.headLineStyle3.copyWith(color: Colors.white),),
+              Gap(AppLayout.getHeight(15)),
+              Text('Sarach@abs.com',style: Styles.headLineStyle4.copyWith(color: Colors.white),),
+              Gap(AppLayout.getHeight(12)),
             ],
           ),
         ),
@@ -55,42 +54,41 @@ class NavigatioinDrawer extends StatelessWidget {
           runSpacing: 16,
           children: [
             ListTile(
-                leading: const Icon(Icons.home_outlined),
-                title: const Text('Home'),
+                leading: const Icon(Icons.work,),
+                title: const Text('Do Task'),
                 onTap: () =>
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const HomeScreenView(),
+                      builder: (context) =>  HomeScreenView(),
                     ))),
             ListTile(
-                leading: const Icon(Icons.favorite_outline),
-                title: const Text('Favourites'),
-                onTap: () {
-                  // close navigation drawer before
-                  Navigator.pop(context);
-
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const FavouritesScreenView(),
-                  ));
-                }),
-            ListTile(
-                leading: const Icon(Icons.workspaces_outline),
-                title: const Text('Workflow'),
-                onTap: () {}),
-            ListTile(
-                leading: const Icon(Icons.update),
-                title: const Text('Updates'),
-                onTap: () {}),
+                leading: const Icon(Icons.task),
+                title: const Text('Complete Task'),
+                onTap: () =>
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) =>  HomeScreenView(),
+                    ))),
             const Divider(
               color: Colors.black54,
             ),
             ListTile(
-                leading: const Icon(Icons.home_outlined),
-                title: const Text('Plugins'),
-                onTap: () {}),
+                leading: const Icon(Icons.share),
+                title: const Text('Rate '),
+                onTap: () {
+                  // close navigation drawer before
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => const FavouritesScreenView(),
+                  ));
+                }),
             ListTile(
-                leading: const Icon(Icons.home_outlined),
-                title: const Text('Notifications'),
-                onTap: () {}),
+                leading: const Icon(Icons.email),
+                title: const Text('Contact Us'),
+                onTap: () {
+                  // close navigation drawer before
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => const FavouritesScreenView(),
+                  ));
+                }),
+            
           ],
         ),
       );

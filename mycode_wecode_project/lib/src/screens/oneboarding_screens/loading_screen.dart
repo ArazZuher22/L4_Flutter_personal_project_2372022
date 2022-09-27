@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:mycode_wecode_project/src/utils/app_styles.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -10,7 +13,7 @@ class LoadingScreen extends StatefulWidget {
 class _LoadingScreen extends State<LoadingScreen> {
   // TODO : create full currect design  : done
   // TODO : create future to wait page
-  Timer _timer;
+  late Timer _timer;
   FlutterLogoStyle _logoStyle = FlutterLogoStyle.markOnly;
 
   _AnimatedFlutterLogoState() {
@@ -25,6 +28,12 @@ class _LoadingScreen extends State<LoadingScreen> {
   void dispose() {
     super.dispose();
     _timer.cancel();
+    Timer(Duration(seconds: 5), () {
+      Navigator.pushNamed(context, '/signIn');
+    });
+    /*Future.delayed(Duration(seconds: 5), () {
+      Navigator.pushNamed(context, '/signIn');
+    });*/
   }
 
   @override
@@ -43,20 +52,18 @@ class _LoadingScreen extends State<LoadingScreen> {
               'Be happy.',
               style: Styles.headLineStyle1.copyWith(color: Styles.whiteColor),
             ),
-            /*
-            // Go to Page2 after 5s.
-            Future.delayed(const Duration(seconds: 5), () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => Screen2()));
-            })
-            */
+            
+            SpinKitCircle(
+              size: 125,
+              color: Colors.white60,
+            )
+          
+            
           ],
         ),
       ),
     );
   }
 
-  // for waiting screen
-  Future waitForFiveSec() async {
-    return await Future.delayed(Duration(seconds: 5)).then((value) => true);
-  }
+  
 }
