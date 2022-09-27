@@ -1,6 +1,7 @@
-# Smile production app
-![Screenshot (3984)](https://user-images.githubusercontent.com/106510867/192460206-71855902-c705-4008-99e5-a49d104b8b76.png)
-
+<h1 align="center">
+  <img alt="Smile production app" src="https://user-images.githubusercontent.com/106510867/192460206-71855902-c705-4008-99e5-a49d104b8b76.png" width=100px"/><br/>
+  Smile production app
+</h1>
 The smile production is application for more production in your life , it is more usefull app to organize your work to early achive tasks. 
 
 # Services & Softwares  
