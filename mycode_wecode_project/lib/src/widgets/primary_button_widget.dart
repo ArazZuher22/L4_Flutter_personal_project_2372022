@@ -6,7 +6,7 @@ import 'package:mycode_wecode_project/src/utils/app_styles.dart';
 
 class PrimaryButtonWidget extends StatelessWidget {
   String buttonText;
-  Function? a;
+  VoidCallback? a;
   PrimaryButtonWidget({Key? key, required this.buttonText, this.a})
       : super(key: key);
 

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:mycode_wecode_project/src/provider/todos.dart';
+import 'package:mycode_wecode_project/src/utils/app_styles.dart';
 import 'package:provider/provider.dart';
 
 import '../models/todo.dart';
+import '../screens/edit_todos_screen.dart';
+import '../utils/utils.dart';
 
 class TodoWidget extends StatelessWidget {
   final Todo todo;
@@ -17,37 +21,34 @@ class TodoWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         child: Slidable(
           key: Key(todo.id),
-
           startActionPane: ActionPane(
             motion: ScrollMotion(),
             children: [
               SlidableAction(
-                    // An action can be bigger than the others.
-                    flex: 2,
-                    onPressed: (context) => {},
-                    backgroundColor: Color(0xFF7BC043),
-                    foregroundColor: Colors.white,
-                    icon: Icons.archive,
-                    label: 'Archive',
-                  ),
+                // An action can be bigger than the others.
+                flex: 2,
+                onPressed: (context) => editTodo(context, todo),
+                backgroundColor: Styles.bgColor,
+                foregroundColor: Styles.successColor,
+                icon: Icons.edit,
+                label: 'Edit',
+              ),
             ],
           ),
-          
           endActionPane: ActionPane(
             motion: ScrollMotion(),
             children: [
               SlidableAction(
-                    // An action can be bigger than the others.
-                    flex: 2,
-                    onPressed: (context) => {},
-                    backgroundColor: Color(0xFF7BC043),
-                    foregroundColor: Colors.white,
-                    icon: Icons.archive,
-                    label: 'Archive',
-                  ),
+                // An action can be bigger than the others.
+                flex: 2,
+                onPressed: (context) => deleteTodo(context, todo),
+                backgroundColor: Styles.bgColor,
+                foregroundColor: Styles.errorColor,
+                icon: Icons.delete,
+                label: 'Delete',
+              ),
             ],
           ),
-          
           child: buildTodo(context),
         ),
       );
@@ -61,7 +62,14 @@ class TodoWidget extends StatelessWidget {
               activeColor: Theme.of(context).primaryColor,
               checkColor: Colors.white,
               value: todo.isDone,
-              onChanged: (_) {},
+              onChanged: (_) {
+                final porvider =
+                    Provider.of<TodosProvider>(context, listen: false);
+                final isDone = porvider.toggleTodoStatus(todo);
+
+                Utils.showSnackBar(context,
+                    isDone ? 'Task completed' : 'Task marked incomplete');
+              },
             ),
             const SizedBox(width: 20),
             Expanded(
@@ -88,6 +96,20 @@ class TodoWidget extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      );
+
+  void deleteTodo(BuildContext context, Todo todo) {
+    final provider = Provider.of<TodosProvider>(context, listen: false);
+
+    provider.removeTodo(todo);
+
+    Utils.showSnackBar(context, 'Deleted the task ');
+  }
+
+  void editTodo(BuildContext context, Todo todo) => Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => EditTodoPage(todo: todo),
         ),
       );
 }

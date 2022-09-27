@@ -17,7 +17,7 @@ class TodoFormWidget extends StatelessWidget {
     this.description = '',
     required this.onChangedTitle,
     required this.onChangedDescription,
-    required this.onSavedTodo, required Null Function() onSaveTodo,}
+    required this.onSavedTodo,}
     ) : super(key: key);
   
 

@@ -7,11 +7,13 @@ class TextFieldWidget extends StatelessWidget {
   String labelText;
   TextEditingController controllerTextField = TextEditingController();
   Icon iconTextField;
+  bool? isPassword = false ; 
   TextFieldWidget(
       {Key? key,
       required this.labelText,
       required this.controllerTextField,
-      required this.iconTextField})
+      required this.iconTextField,
+      this.isPassword})
       : super(key: key);
 
   @override
@@ -21,20 +23,25 @@ class TextFieldWidget extends StatelessWidget {
     return Container(
       width: AppLayout.getWidth(330),
       child: TextField(
+        // changed this
+        controller: controllerTextField,
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: Styles.primaryLightColor,
+          // Icon textfield
+          prefixIcon: iconTextField,
+          prefixIconColor: Styles.primaryColor,
           // changed this
-          controller: controllerTextField,
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Styles.primaryLightColor,
-            // Icon textfield
-            prefixIcon: iconTextField,
-            prefixIconColor: Styles.primaryColor,
-            // changed this
-            labelText: labelText,
-            labelStyle: Styles.textStyleLarge,
-            enabledBorder: myinputborder(),
-            focusedBorder: myfocusborder(),
-          )),
+          labelText: labelText,
+          labelStyle: Styles.textStyleLarge,
+          enabledBorder: myinputborder(),
+          focusedBorder: myfocusborder(),
+        ),
+        // if password
+        obscureText: isPassword==true ? true : false,
+        enableSuggestions: isPassword==true ? false : true,
+        autocorrect: isPassword==true ? false : true ,
+      ),
     );
   }
 

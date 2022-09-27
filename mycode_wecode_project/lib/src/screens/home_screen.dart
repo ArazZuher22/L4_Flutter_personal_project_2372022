@@ -7,6 +7,7 @@ import 'package:mycode_wecode_project/src/utils/app_layout.dart';
 import 'package:mycode_wecode_project/src/utils/app_styles.dart';
 
 import '../views/bottom_bar_view.dart';
+import '../views/completed_todo_list_view.dart';
 import '../views/menu_navigation_view.dart';
 import '../views/todo_list_view.dart';
 
@@ -29,7 +30,7 @@ class _HomeScreenView extends State<HomeScreenView> {
 
   final tabs = [
     TodoListWidget(),
-    Container(),
+    CompletedListWidget(),
   ];
   @override
   Widget build(BuildContext context) => isLoading
@@ -39,7 +40,9 @@ class _HomeScreenView extends State<HomeScreenView> {
             backgroundColor: Styles.primaryColor,
           ),
           drawer: NavigatioinDrawer(),
-          body: widget.selectedIndex == null ? tabs[0] : tabs[widget.selectedIndex!],
+          //body: widget.selectedIndex == null ? tabs[0] : tabs[widget.selectedIndex!],
+          
+          
           bottomNavigationBar: widget.selectedIndex == null ? BottomNavBarV2() :BottomNavBarV2(currentIndex :widget.selectedIndex!),
         );
 }

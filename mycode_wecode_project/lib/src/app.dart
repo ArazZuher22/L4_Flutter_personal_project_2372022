@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     create: (context)=>TodosProvider(),
     child:MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignInScreen(),
+      home: HomeScreenView(),
       routes: {
 
         '/signIn' :(context)=>SignInScreen(),

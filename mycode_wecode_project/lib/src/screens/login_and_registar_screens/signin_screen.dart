@@ -5,9 +5,11 @@ import 'package:mycode_wecode_project/src/utils/app_styles.dart';
 import 'package:mycode_wecode_project/src/utils/app_layout.dart';
 import 'package:mycode_wecode_project/src/views/top_circular_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../../widgets/google_signin_button.dart';
 import '../../widgets/primary_button_widget.dart';
 import '../../widgets/secondary_button_widget.dart';
 import '../../widgets/text_field_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -24,6 +26,7 @@ class _SignInScreen extends State<SignInScreen> {
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Styles.bgColor,
         body: Column(
           children: [
@@ -47,6 +50,7 @@ class _SignInScreen extends State<SignInScreen> {
               labelText: "Password",
               controllerTextField: password,
               iconTextField: Icon(Icons.lock),
+              isPassword: true,
             ),
             Gap(AppLayout.getHeight(25)),
             Text(
@@ -55,9 +59,12 @@ class _SignInScreen extends State<SignInScreen> {
             ),
             Gap(AppLayout.getHeight(20)),
             PrimaryButtonWidget(
-              buttonText: "Sign In",
-              
-            ),
+                buttonText: "Sign In",
+                  a: () async {
+                    registerWithEmailAndPassword(
+                        emailOrNumber.text.trim(), password.text);
+                  }
+                ),
             Gap(AppLayout.getHeight(30)),
             Text(
               'or',
@@ -65,6 +72,7 @@ class _SignInScreen extends State<SignInScreen> {
                   color: Styles.primaryColor, fontWeight: FontWeight.normal),
             ),
             Gap(AppLayout.getHeight(20)),
+            
             SecondaryButtonWidget(
                 buttonText: "Sign With Google",
                 buttonIcon: Icon(FontAwesomeIcons.google)),
@@ -89,5 +97,12 @@ class _SignInScreen extends State<SignInScreen> {
             ),
           ],
         ));
+  }
+
+  registerWithEmailAndPassword(
+      String emailFromTheBody, String PasswordFromBody) async {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: emailFromTheBody,password: PasswordFromBody,
+    );
   }
 }
